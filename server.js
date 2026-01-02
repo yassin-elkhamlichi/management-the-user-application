@@ -1,15 +1,13 @@
-// server.js - Modification par Amine
-app.post('/api/users', (req, res) => {
-  const { nom, email, password } = req.body;
+// server.js - Modification par Ali
+app.delete('/api/users/:id', (req, res) => {
+  const userId = parseInt(req.params.id);
+  const index = users.findIndex(user => user.id === userId);
   
-  const nouvelUtilisateur = {
-    id: Date.now(),
-    nom: nom,
-    email: email,
-    password: hashPassword(password)
-  };
+  if (index === -1) {
+    return res.status(404).json({ message: 'Utilisateur non trouvé' });
+  }
   
-  users.push(nouvelUtilisateur);
-  res.status(201).json(nouvelUtilisateur);
+  users.splice(index, 1);
+  res.status(200).json({ message: 'Utilisateur supprimé avec succès' });
 });
 
