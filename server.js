@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // server.js - Modification par Amine
 app.post('/api/users', (req, res) => {
   const { nom, email, password } = req.body;
@@ -12,7 +11,6 @@ app.post('/api/users', (req, res) => {
   
   users.push(nouvelUtilisateur);
   res.status(201).json(nouvelUtilisateur);
-=======
 // server.js - Modification par Ali
 app.delete('/api/users/:id', (req, res) => {
   const userId = parseInt(req.params.id);
@@ -24,6 +22,5 @@ app.delete('/api/users/:id', (req, res) => {
   
   users.splice(index, 1);
   res.status(200).json({ message: 'Utilisateur supprimé avec succès' });
->>>>>>> ali
 });
 
